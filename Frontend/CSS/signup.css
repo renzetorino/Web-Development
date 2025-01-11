@@ -77,10 +77,8 @@ header {
     background: crimson;
     color: #fff;
 }
-
-
-/*login*/
-.login{
+/*signup*/
+.signup{
     position: absolute; 
     top: 50%; 
     left: 50%; 
@@ -94,13 +92,13 @@ header {
     text-align: center;
     
 }
-.login-title{
+.signup-title{
     font-size: 36px;
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
 }
-.login-form{
+.signup-form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,12 +136,12 @@ input:focus {
     cursor: pointer;
     margin-bottom: 10px;
 }
-.btn-login{
+.btn-signup{
     background: crimson;
     color: white;
     margin-top: 10px;
 }
 
-.btn-login:hover{
-    background: darkred;
+.btn-signup:hover{
+    background-color: darkred;
 }
