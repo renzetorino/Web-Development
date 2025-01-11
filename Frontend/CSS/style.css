@@ -25,6 +25,7 @@ header {
     padding: 1rem 2rem;
 }
 
+
 .logo {
     display: flex;
     align-items: center;
@@ -62,6 +63,12 @@ header {
 
 .nav-links a:hover {
     color: crimson;
+}
+
+.nav-links a.active {
+    color: crimson; /* Highlight color */
+    font-weight: bold; 
+    border-bottom: 2px solid white; /
 }
 
 .login-btn {
