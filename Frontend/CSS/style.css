@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px;
+    margin-right: 10px; /* Add some space between the image and the text */
+}
+
+.Title {
+    font-size: 2.0rem;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;;
+    font-weight: bold;
+    color: #333;
+    margin: 0; /* Remove any default margin to ensure proper alignment */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: crimson;
+}
+
+.login-btn {
+    border: 1px solid #333;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background: crimson;
+    color: #fff;
+}
+
+/* main */
+.main {
+    background-image: url('Assets/background.jpg'); /* Add your background image URL */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.main h2 {
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.main p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-prime, .btn-second{
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-prime {
+    background: crimson;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.btn-prime:hover {
+    background: darkred;
+}
+
+.btn-second {
+    background: #fff;
+    color: crimson;
+    border: 2px solid crimson;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-second:hover {
+    background: crimson;
+    color: #fff;
+
+}
+/* continue*/
+.main-continue {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: white;
+}
+
+.main-continue h2 {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 3rem;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem; 
+}
+
+.box-category {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px; 
+    height: 400px;
+    transition: transform 0.3s, box-shadow 0.3s ease;
+}
+
+.box-category:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px #555;
+}
+.box-category img {
+    width: 150px;
+    margin-bottom: 0.5rem;
+}
+
+.box-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.box-category p {
+    font-size: 1.0rem;
+    color: #555;
+}
+/* about*/
+.main-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #F9F9F7;
+}
+
+.about {
+    display: flex;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+.about img {
+    max-width: 50%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.about-text{
+    max-width: 50%;
+}
+
+.about-text h2{
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    color: #333;
+}
+
+.first{
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-bottom:10px;
+    margin-left: 25px;
+    color:#555;
+    
+}
+.second{
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    color: #3c3c3c
+}
+
+.about-btn {
+    border: 2px solid #333;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    margin-left: 25px;
+    transition: all 0.3s;
+}
+
+.about-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+/* feature */
+.main-feature{
+    text-align: justify;
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+.main-feature h2{
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 50px;
+    color: #333;
+}
+.features{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.box-feature{
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 32%;
+    text-align: justify;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box-feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px white
+}
+.box-feature img{
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.box-feature h3{
+    font-size: 1.20rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+.box-feature p{
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* healthy tips*/
+.main-tips {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: justify;
+    position: relative; 
+}
+.main-tips h2 {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* This one is temporary */
+.tips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.box-tip {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+.tips h2 {
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.read-btn {
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    padding: 10px 20px;
+    background-color: #AD343E;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 50px;
+}
+.read-btn:hover {
+    background-color: #e65c50;
+}
