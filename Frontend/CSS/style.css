@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -35,9 +36,9 @@ header {
 }
 
 .Title {
-    font-size: 1.5rem;
+    font-size: 2.0rem;
     font-style: italic;
-    font-family: cursive,'Lucida', 'Lucida Regular', 'Lucida Grande', 'Lucida Unicode', Geneva, Verdana, serif;
+    font-family: 'Playfair Display', serif;;
     font-weight: bold;
     color: #333;
     margin: 0; /* Remove any default margin to ensure proper alignment */
@@ -74,5 +75,185 @@ header {
 
 .login-btn:hover {
     background: crimson;
+    color: #fff;
+}
+
+/* main */
+.main {
+    background-image: url('Assets/background.jpg'); /* Add your background image URL */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.main h2 {
+    font-size: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.main p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-prime, .btn-second{
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-prime {
+    background: crimson;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.btn-prime:hover {
+    background: darkred;
+}
+
+.btn-second {
+    background: #fff;
+    color: crimson;
+    border: 2px solid crimson;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-second:hover {
+    background: crimson;
+    color: #fff;
+
+}
+
+.main-continue {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+}
+
+.main-continue h2 {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 3rem;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem; 
+}
+
+.box-category {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px; 
+    height: 400px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.box-category:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px #555;
+}
+.box-category img {
+    width: 150px;
+    margin-bottom: 0.5rem;
+}
+
+.box-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.box-category p {
+    font-size: 1.0rem;
+    color: #555;
+}
+
+.main-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #F9F9F7;
+}
+
+.about {
+    display: flex;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+.about img {
+    max-width: 50%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.about-text{
+    max-width: 50%;
+}
+
+.about-text h2{
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    color: #333;
+}
+
+.first{
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-bottom:10px;
+    margin-left: 25px;
+    color:#555;
+    
+}
+.second{
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    color: #3c3c3c
+}
+
+.about-btn {
+    border: 2px solid #333;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 20px;
+    margin-left: 25px;
+    transition: all 0.3s;
+}
+
+.about-btn:hover {
+    background-color: #333;
     color: #fff;
 }
