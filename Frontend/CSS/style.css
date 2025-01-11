@@ -142,11 +142,11 @@ header {
     color: #fff;
 
 }
-
+/* continue*/
 .main-continue {
     text-align: center;
     padding: 2rem 1rem;
-    background-color: #ffffff;
+    background-color: white;
 }
 
 .main-continue h2 {
@@ -174,7 +174,7 @@ header {
     justify-content: center;
     width: 350px; 
     height: 400px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s ease;
 }
 
 .box-category:hover{
@@ -196,7 +196,7 @@ header {
     font-size: 1.0rem;
     color: #555;
 }
-
+/* about*/
 .main-about {
     display: flex;
     align-items: center;
@@ -256,4 +256,105 @@ header {
 .about-btn:hover {
     background-color: #333;
     color: #fff;
+}
+/* feature */
+.main-feature{
+    text-align: justify;
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+.main-feature h2{
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 50px;
+    color: #333;
+}
+.features{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.box-feature{
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 32%;
+    text-align: justify;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box-feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px white
+}
+.box-feature img{
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.box-feature h3{
+    font-size: 1.20rem;
+    margin-bottom: 10px;
+    color: #222;
+}
+.box-feature p{
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* healthy tips*/
+.main-tips {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: justify;
+    position: relative; 
+}
+.main-tips h2 {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* This one is temporary */
+.tips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.box-tip {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+.tips h2 {
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.read-btn {
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    padding: 10px 20px;
+    background-color: #AD343E;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 50px;
+}
+.read-btn:hover {
+    background-color: #e65c50;
 }
