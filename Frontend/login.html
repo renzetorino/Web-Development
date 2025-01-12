@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOODYUM</title>
     <link rel ="stylesheet" href = "CSS/login.css">
+    <script type="module" src="Scripts/login.js" defer></script>
 </head>
 <body>
     <header>
@@ -16,13 +17,13 @@
         <form class="login-form">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" id="Email" placeholder="user@email.com" required>
+                <input type="text" id="email" placeholder="user@email.com" required>
             </div>
             <div class="form-group">
                 <label for="password">password</label>
                 <input type="password" id="password" placeholder="**********" required>
             </div>
-            <button type="button" class="btn btn-login">Log In</button><br>
+            <button type="submit" id ="submit" class="btn btn-login">Log In</button><br>
             <div class="register-link">
                 <p>Don't have an Account?<a href="signup.html">Register</a></p>
             </div>
@@ -30,5 +31,5 @@
     </section>
 
 </body>
-<script src="header.js"></script>
+<script src="Scripts/header.js"></script>
 </html>
