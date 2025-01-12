@@ -28,11 +28,11 @@ document.body.insertAdjacentHTML(
           </div>
           <nav>
               <ul class="nav-links">
-                  <li><a href='Landing.html' class="active">Home</a></li>  
-                  <li><a href='#'>About us</a></li>  
-                  <li><a href='#'>Recipes</a></li>  
-                  <li><a href='#'>Tips</a></li>  
-                  <li><a href='#'>Contact</a></li>
+                  <li><a href='Landing.html' class="nav-link">Home</a></li>  
+                  <li><a href='#' class="nav-link">About us</a></li>  
+                  <li><a href='#' class="nav-link">Recipes</a></li>  
+                  <li><a href='tips.html' class="nav-link">Tips</a></li>  
+                  <li><a href='#' class="nav-link">Contact</a></li>
               </ul>  
           </nav>
           <button class="login-btn" onclick="location.href='login.html'">Login</button>
@@ -40,6 +40,27 @@ document.body.insertAdjacentHTML(
     </header>
     `
   );
+  
+  // Function to highlight the active link
+  function highlightActiveLink() {
+    const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+  
+    const navLinks = document.querySelectorAll(".nav-link");
+  
+    navLinks.forEach((link) => {
+      const linkHref = link.getAttribute("href").split("/").pop(); // Get the href from each link and get the last part (the page name)
+  
+      // If the link matches the current page, add 'active', otherwise remove it
+      if (linkHref === currentPage) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+  
+  // Call the function to highlight the active link on page load
+  highlightActiveLink();
 
 // Detect Auth State
 onAuthStateChanged(auth, (user) => {
