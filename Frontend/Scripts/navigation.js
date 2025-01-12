@@ -17,29 +17,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-document.body.insertAdjacentHTML(
-    "afterbegin",
-    `
-    <header>
-      <div class="navbar">
-          <div class="logo">
-              <img src="CSS/Assets/sample.jpg" alt="Logo">
-              <h1 class="Title">FoodYum</h1>
-          </div>
-          <nav>
-              <ul class="nav-links">
-                  <li><a href='Landing.html' class="nav-link">Home</a></li>  
-                  <li><a href='#' class="nav-link">About us</a></li>  
-                  <li><a href='#' class="nav-link">Recipes</a></li>  
-                  <li><a href='tips.html' class="nav-link">Tips</a></li>  
-                  <li><a href='#' class="nav-link">Contact</a></li>
-              </ul>  
-          </nav>
-          <button class="login-btn" onclick="location.href='login.html'">Login</button>
-      </div>
-    </header>
-    `
-  );
+
   
   // Function to highlight the active link
   function highlightActiveLink() {
