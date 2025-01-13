@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel ="stylesheet" href = "../CSS/tipsadmin.css">
+    <script type="module" src="adminnav.js"></script>
+    
+</head>
+<body>
+    <header>
+        <div id="header-placeholder"></div>
+    </header>
+   
+    <h1 style="text-align: center;">Add a New Article</h1>
+  <form id="add-article-form">
+    <label for="title">Article Title:</label>
+    <input type="text" id="title" placeholder="Enter article title" required>
+
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" placeholder="Enter image URL" required>
+
+    <label for="date">Publish Date:</label>
+    <input type="date" id="date" required>
+
+    <label for="content">Content here:</label>
+    <textarea id="content" placeholder="Enter your article content here" required></textarea>
+    
+    <button type="submit">Add Article</button>
+  </form>
+
+
+    <script src="article-details-add.js" type="module"></script>
+</body>
+<script src="headeradmin.js"></script>
+</html>

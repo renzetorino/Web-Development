@@ -1,20 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+main {
+    text-align: center;
+    padding: 20px;
+    margin-top: 100px;
 }
 
-body {
-    line-height: 1.6;
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-header {
+p {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.article-details-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.article {
     background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    z-index: 10;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
 }
-/* main */
+
+.article img {
+    width: 100%;
+    height: auto;
+}
+
+.article h2 {
+    font-size: 24px;
+    margin: 15px;
+}
+
+.article p {
+    color: #666;
+    margin: 0 15px 15px;
+}
+
+.like-btn {
+    background: none; 
+    border: none; 
+    padding: 0; 
+    cursor: pointer; 
+    outline: none; 
+    margin-left: 20px;
+    transition: transform 0.3s ease; 
+}
+
+.like-btn img {
+    width: 40px; 
+    height: auto;
+}
+.like-btn:hover img {
+    transform: scale(1.1); 
+}

@@ -1,0 +1,41 @@
+form {
+  width: 300px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input, button {
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: crimson;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: darkred;
+}
+
+#content {
+  width: 100%; 
+  height: 300px; 
+  padding: 10px;
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif; 
+  border: 1px solid #ccc;
+  resize: vertical; 
+  box-sizing: border-box; 
+  overflow-y: auto; 
+}
