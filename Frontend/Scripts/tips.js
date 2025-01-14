@@ -54,7 +54,6 @@ async function fetchArticles() {
       const likeCount = articleElement.querySelector(".like-count span");
 
       likeButton.addEventListener("click", (event) => {
-        // Prevent click event from propagating to the articleElement (so it doesn't trigger the redirect)
         event.stopPropagation();
         handleLikeClick(article.id, likeCount);
       });
