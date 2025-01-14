@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getFirestore, collection, getDocs, doc, updateDoc, getDoc, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { query, limit } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
 
 const firebaseConfig = {
@@ -18,7 +19,7 @@ const auth = getAuth(app);
 
 let currentUser = null;
 
-// Listen for auth state changes
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
     currentUser = user; 
@@ -29,82 +30,88 @@ onAuthStateChanged(auth, (user) => {
 
 
 async function fetchArticles() {
-  try {
-    const articlesRef = collection(db, "articles");
-    const snapshot = await getDocs(articlesRef);
-    const articles = snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }));
-
-    const articlesContainer = document.querySelector(".article-details-container");
-    articles.forEach((article) => {
-      const articleElement = document.createElement("div");
-      articleElement.classList.add("article");
-      articleElement.setAttribute("data-id", article.id);
-
-      articleElement.innerHTML = `
-        <img src="${article.image || 'default_image.jpg'}" alt="Article Image">
-        <h2>${article.title || 'No Title'}</h2>
-        <p>${article.date || 'No Date Available'}</p>
-        <button class="like-btn"><img src="CSS/Assets/like.png" style="width:40px; cursor:pointer;" class="user-icon"></button>
-        <p class="like-count">Likes: <span>${article.likes || 0}</span></p>
-        <button class="favorite-btn">
-            <svg
-            class="favorite-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polygon
-              class="star"
-              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-            />
-          </svg>
-        </button>
-        <p class="favorite-status">Favorite: <span>${article.favorites || 0}</span></p>
-      `;
-
+    try {
+      const articlesRef = collection(db, "articles");
+  
       
-      const likeButton = articleElement.querySelector(".like-btn");
-      const likeCount = articleElement.querySelector(".like-count span");
-
-      likeButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-        handleLikeClick(article.id, likeCount);
-      });
-
+      const q = query(articlesRef, limit(4));
       
-      const favoriteButton = articleElement.querySelector(".favorite-btn");
-      const favoriteStatus = articleElement.querySelector(".favorite-status span");
-
-      favoriteButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-        handleFavoriteClick(article.id, favoriteStatus, favoriteButton);
-        favoriteButton.classList.toggle("active");
-      });
-
+      const snapshot = await getDocs(q);
+      const articles = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+  
+      const articlesContainer = document.querySelector(".article-details-container");
+      articles.forEach((article) => {
+        const articleElement = document.createElement("div");
+        articleElement.classList.add("article");
+        articleElement.setAttribute("data-id", article.id);
+  
+        articleElement.innerHTML = `
+          <img src="${article.image || 'default_image.jpg'}" alt="Article Image">
+          <h3>${article.title || 'No Title'}</h3>
+          <p>${article.date || 'No Date Available'}</p>
+          <button class="like-btn"><img src="CSS/Assets/like.png" style="width:40px; cursor:pointer;" class="user-icon"></button>
+          <p class="like-count">Likes: <span>${article.likes || 0}</span></p>
+          <button class="favorite-btn">
+              <svg
+              class="favorite-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon
+                class="star"
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+          </button>
+          <p class="favorite-status">Favorite: <span>${article.favorites || 0}</span></p>
+        `;
+  
       
-      checkFavoriteStatus(article.id, favoriteButton);
-
-      articleElement.addEventListener("click", () => {
-        window.location.href = `contents.html?id=${article.id}`;
+        const likeButton = articleElement.querySelector(".like-btn");
+        const likeCount = articleElement.querySelector(".like-count span");
+  
+        likeButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          handleLikeClick(article.id, likeCount);
+        });
+  
+        
+        const favoriteButton = articleElement.querySelector(".favorite-btn");
+        const favoriteStatus = articleElement.querySelector(".favorite-status span");
+  
+        favoriteButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          handleFavoriteClick(article.id, favoriteStatus, favoriteButton);
+          favoriteButton.classList.toggle("active");
+        });
+  
+        // Check if the article is favorited by the current user
+        checkFavoriteStatus(article.id, favoriteButton);
+  
+       
+        articleElement.addEventListener("click", () => {
+          window.location.href = `contents.html?id=${article.id}`;
+        });
+  
+        articlesContainer.appendChild(articleElement);
       });
-
-      articlesContainer.appendChild(articleElement);
-    });
-  } catch (error) {
-    console.error("Error fetching articles:", error);
-    alert("Failed to fetch articles. Please try again later.");
+    } catch (error) {
+      console.error("Error fetching articles:", error);
+      alert("Failed to fetch articles. Please try again later.");
+    }
   }
-}
+  
 
 
-// Handle like click
+
 async function handleLikeClick(articleId, likeCountElement) {
   try {
     if (!currentUser) {
@@ -142,7 +149,7 @@ async function handleLikeClick(articleId, likeCountElement) {
   }
 }
 
-// Handle favorite click (with the arrayRemove fix)
+
 async function handleFavoriteClick(articleId, favoriteStatusElement) {
   try {
     if (!currentUser) {
@@ -166,7 +173,7 @@ async function handleFavoriteClick(articleId, favoriteStatusElement) {
     if (favoritedBy.includes(userId)) {
       await updateDoc(articleRef, {
         favorites: favorites - 1,
-        favoritedBy: arrayRemove(userId), 
+        favoritedBy: arrayRemove(userId), // Now arrayRemove is correctly imported
       });
 
       favoriteStatusElement.textContent = favorites - 1;
@@ -186,10 +193,9 @@ async function handleFavoriteClick(articleId, favoriteStatusElement) {
   }
 }
 
-
 async function checkFavoriteStatus(articleId, favoriteButton) {
   try {
-    if (!currentUser) return;
+    if (!currentUser) return; 
 
     const userId = currentUser.uid;
     const articleRef = doc(db, "articles", articleId);
@@ -203,7 +209,6 @@ async function checkFavoriteStatus(articleId, favoriteButton) {
     const articleData = articleDoc.data();
     const favoritedBy = articleData.favoritedBy || [];
 
-    
     if (favoritedBy.includes(userId)) {
       favoriteButton.classList.add("active");
     } else {

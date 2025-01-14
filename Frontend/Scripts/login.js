@@ -38,7 +38,6 @@ submit.addEventListener("click", function (event) {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    alert(`Your account is succesfully created.`);
     window.location.href = "Landing.html"
   })
   .catch((error) => {

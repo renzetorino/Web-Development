@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOOD-YUM</title>
     <link rel ="stylesheet" href = "CSS/style.css">
-    <link rel="stylesheet" href="CSS/tips.css">
+    <link rel ="stylesheet" href = "CSS/tips.css">
     <script type="module" src="Scripts/navigation.js"></script>
+    <script src="Scripts/tipsland.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -17,7 +18,7 @@
             <h2>Nourish Your<br> Body, Save<br> Your Wallet</h2>
             <p>Discover affordable, nutritious ingredients for a healthier <br>lifestyle!</p>
             <button class="btn-prime">Browse Recipes</button>
-            <button class="btn-second">Become Healthy</b    utton>
+            <button class="btn-second">Become Healthy</button>
         </div>
     </section>
 
@@ -81,14 +82,18 @@
 
     <section class ="main-tips">
         <h2>Healthy Tips</h2>
-        <div class="tips">
-            <div class="box-tip">
-                <div class="article-details-container"></div> 
+            <div class="container">
+                <div class="article-details-container"></div> <!-- Container for favorited articles -->
             </div>
         </div>
         <button class="read-btn"onclick="location.href='tips.html'">Read all Article</button>
     </section>
-    <script src="Scripts/tips.js" type="module"></script>
+    
+    <footer>
+        <div id="footer-placeholder"></div>
+    </footer>
 </body>
 <script src="Scripts/header.js"></script>
+<script src="Scripts/footer.js"></script>
+
 </html>

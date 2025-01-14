@@ -61,6 +61,7 @@ p {
     transition: transform 0.3s ease; 
 }
 
+
 .like-btn img {
     width: 40px; 
     height: auto;
@@ -68,3 +69,34 @@ p {
 .like-btn:hover img {
     transform: scale(1.1); 
 }
+.favorite-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+  }
+  
+  .favorite-icon {
+    width: 40px;
+    height: 40px;
+    color: #ccc; /* Default unfilled color */
+    transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: 20px;
+  }
+  
+  .favorite-btn .favorite-icon .star {
+    fill: none;
+    stroke-width: 1.5;
+  }
+  
+  .favorite-btn.active .favorite-icon {
+    color: #ffc107; /* Gold for filled star */
+    transform: scale(1.2); /* Pop animation */
+  }
+  
+  .favorite-btn.active .favorite-icon .star {
+    fill: #ffc107;
+    stroke-width: 0;
+  }
+  
