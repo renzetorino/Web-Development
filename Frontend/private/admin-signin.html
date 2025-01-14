@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOOD-YUM</title>
-    <link rel ="stylesheet" href = "CSS/login.css">
-    <script type="module" src="Scripts/login.js" defer></script>
-    <script src="Scripts/header.js"></script>
+    <title>FOODYUM</title>
+    <link rel ="stylesheet" href = "../CSS/login.css">
+    <link rel ="stylesheet" href = "../CSS/navbar.css">
+    <script type="module" src="admin.js" defer></script>
+    
 </head>
 <body>
     <header>
-        <div id="header-placeholder"></div>
+        <div class = "navbar">
+            <div class="logo">
+                <img src="../CSS/Assets/sample.jpg">
+            <h1 class = "Title">FoodYum</h1>
+        </div>
+            <button class="login-btn" onclick="location.href='admin-signin.html'">Login</button>
+        </div>
     </header>
     
     <section class="login">
@@ -26,8 +33,7 @@
             </div>
             <button type="submit" id ="submit" class="btn btn-login">Log In</button><br>
             <div class="register-link">
-                <p>Don't have an Account?<a href="signup.html">Register</a></p>
-                <p>Log in as Admin?<a href="private/admin-signin.html">Here</a></p>
+                <p>Log-in as user?<a href="../login.html">here</a></p>
             </div>
         </form>
     </section>

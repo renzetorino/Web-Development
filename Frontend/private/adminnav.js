@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
+
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBlXaECsscf-6rra015vOeOTfDrSBcCMi0",
@@ -16,26 +17,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Function to highlight the active link
-function highlightActiveLink() {
-  const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
 
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  navLinks.forEach((link) => {
-    const linkHref = link.getAttribute("href").split("/").pop(); // Get the href from each link and get the last part (the page name)
-
-    // If the link matches the current page, add 'active', otherwise remove it
-    if (linkHref === currentPage) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-}
-
-// Call the function to highlight the active link on page load
-highlightActiveLink();
+  
+  // Function to highlight the active link
+  function highlightActiveLink() {
+    const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+  
+    const navLinks = document.querySelectorAll(".nav-link");
+  
+    navLinks.forEach((link) => {
+      const linkHref = link.getAttribute("href").split("/").pop(); // Get the href from each link and get the last part (the page name)
+  
+      // If the link matches the current page, add 'active', otherwise remove it
+      if (linkHref === currentPage) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+  
+  // Call the function to highlight the active link on page load
+  highlightActiveLink();
 
 // Detect Auth State
 onAuthStateChanged(auth, (user) => {
@@ -49,11 +52,10 @@ onAuthStateChanged(auth, (user) => {
     const userName = user.displayName || user.email;
 
     userIcon.innerHTML = `
-      <img src="CSS/Assets/user-icon.png" alt="User Icon" style="width:40px; cursor:pointer;" class="user-icon">
-      <div class="dropdown" style="position:absolute; background:#fff; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); padding:10px; border-radius:5px; display:none;">
+      <img src="../CSS/Assets/user-icon.png" alt="User Icon" style="width:40px; cursor:pointer;" class="user-icon">
+      <div class="dropdown" style="position:absolute; background:#fff; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); padding:10px; border-radius:5px;">
         <h4 style="margin:5px 0; font-weight:bold; text-align:center; color:#333; cursor:default;">Hello, ${userName}!</h4>
         <hr style="margin:10px 0; border:none; border-top:1px solid #eee;">
-        <p id="favorites" style="margin:5px 0; cursor:pointer;">Favorites</p>
         <p id="sign-out" style="margin:5px 0; cursor:pointer;">Sign Out</p>
       </div>
     `;
@@ -67,7 +69,7 @@ onAuthStateChanged(auth, (user) => {
     const dropdown = userIcon.querySelector(".dropdown");
     const icon = userIcon.querySelector(".user-icon");
     icon.addEventListener("click", () => {
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
     });
 
     // Handle Sign-Out
@@ -76,18 +78,11 @@ onAuthStateChanged(auth, (user) => {
       signOut(auth)
         .then(() => {
           alert("Signed out successfully.");
-          window.location.href = "login.html";
+          window.location.href = "admin-signin.html";
         })
         .catch((error) => {
           alert(`Error signing out: ${error.message}`);
         });
-    });
-
-    // Handle Favorites Navigation
-    const favoriteButton = dropdown.querySelector("#favorites");
-    favoriteButton.addEventListener("click", () => {
-      // Redirect to favorites.html
-      window.location.href = "favorites.html";
     });
   } else {
     // User is not logged in: Ensure Login button is visible

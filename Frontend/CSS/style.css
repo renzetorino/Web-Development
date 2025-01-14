@@ -271,13 +271,13 @@ header {
     background: #f9f9f9;
     border-radius: 10px;
     padding: 20px;
-    width: 300px;
+    width: 500px;
     text-align: center;
 }
 .tips h2 {
-    font-size: 3rem;
+    font-size: 2rem;
+    margin-bottom: 10px;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 50px;
     color: #333;
 }
 
