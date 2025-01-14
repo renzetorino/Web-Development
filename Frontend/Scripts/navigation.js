@@ -16,16 +16,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Function to highlight the active link
+
 function highlightActiveLink() {
-  const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+  const currentPage = window.location.pathname.split("/").pop(); 
 
   const navLinks = document.querySelectorAll(".nav-link");
 
   navLinks.forEach((link) => {
-    const linkHref = link.getAttribute("href").split("/").pop(); // Get the href from each link and get the last part (the page name)
+    const linkHref = link.getAttribute("href").split("/").pop(); 
 
-    // If the link matches the current page, add 'active', otherwise remove it
+   
     if (linkHref === currentPage) {
       link.classList.add("active");
     } else {
@@ -34,7 +34,7 @@ function highlightActiveLink() {
   });
 }
 
-// Call the function to highlight the active link on page load
+
 highlightActiveLink();
 
 // Detect Auth State
@@ -43,7 +43,7 @@ onAuthStateChanged(auth, (user) => {
   const loginBtn = document.querySelector(".login-btn");
 
   if (user) {
-    loginBtn.style.display = "none"; // Hide Login button
+    loginBtn.style.display = "none"; 
 
     const userIcon = document.createElement("div");
     const userName = user.displayName || user.email;
@@ -83,14 +83,14 @@ onAuthStateChanged(auth, (user) => {
         });
     });
 
-    // Handle Favorites Navigation
+    
     const favoriteButton = dropdown.querySelector("#favorites");
     favoriteButton.addEventListener("click", () => {
-      // Redirect to favorites.html
+     
       window.location.href = "favorites.html";
     });
   } else {
-    // User is not logged in: Ensure Login button is visible
+    
     loginBtn.style.display = "block";
   }
 });
