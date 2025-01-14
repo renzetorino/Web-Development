@@ -15,48 +15,43 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Function to normalize content
 function normalizeContent(rawContent) {
-  // Trim whitespace and split content into individual lines
-  const lines = rawContent.trim().split("\n");
+  if (!rawContent) return "<p>No content available.</p>";
 
-  // Prepare sections
-  let paragraphs = []; // To hold general paragraphs
-  let numberedList = []; // To hold numbered steps
+  
+  const lines = rawContent.trim().split("\n").filter((line) => line.trim().length > 0);
+
+  let content = "";
+  let currentNumber = ""; 
+  let paragraphBuffer = ""; 
 
   lines.forEach((line) => {
-    line = line.trim(); // Remove extra spaces
-
-    if (/^\d+\.\s/.test(line)) {
-      // If the line starts with a number (e.g., "1. "), add to the numbered list
-      numberedList.push(line);
-    } else if (line) {
-      // Otherwise, treat it as a paragraph
-      paragraphs.push(line);
+    const match = line.match(/^(\d+)\.\s(.*)/); 
+    if (match) {
+      
+      if (paragraphBuffer.trim()) {
+        content += `<p style="margin-bottom: 1.5em;">${paragraphBuffer.trim()}</p>`;
+        paragraphBuffer = "";
+      }
+      
+      currentNumber = match[1]; 
+      paragraphBuffer = `${match[1]}. ${match[2]}`; 
+    } else {
+      paragraphBuffer += ` ${line.trim()}`;
     }
   });
 
-  // Build HTML output
-  let formattedContent = "";
-
-  // Add paragraphs
-  paragraphs.forEach((para) => {
-    formattedContent += `<p>${para}</p>`;
-  });
-
-  // Add numbered list (if present)
-  if (numberedList.length > 0) {
-    formattedContent += "<ol>";
-    numberedList.forEach((item) => {
-      formattedContent += `<li>${item}</li>`;
-    });
-    formattedContent += "</ol>";
+  
+  if (paragraphBuffer.trim()) {
+    content += `<p style="margin-bottom: 1.5em;">${paragraphBuffer.trim()}</p>`;
   }
-
-  return formattedContent;
+  return content || "<p>No content available.</p>";
 }
 
-// Fetch article details based on URL ID
+
+
+
+
 async function fetchArticleDetails() {
   const params = new URLSearchParams(window.location.search);
   const articleId = params.get("id");
