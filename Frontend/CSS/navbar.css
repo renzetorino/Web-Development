@@ -4,6 +4,13 @@
     align-items: center;
     padding: 1rem 2rem;
 }
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it's above other content */
+}
 
 
 .logo {
