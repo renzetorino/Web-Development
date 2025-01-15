@@ -21,19 +21,19 @@ let currentUser = null;
 // Listen for auth state changes
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    currentUser = user; // User is logged in
-    fetchFavoritedArticles(); // Fetch favorited articles if logged in
+    currentUser = user; 
+    fetchFavoritedArticles(); 
   } else {
-    currentUser = null; // User is logged out
+    currentUser = null; 
     alert("Please log in to view your favorited articles.");
-    window.location.href = "login.html"; // Redirect to login page
+    window.location.href = "login.html"; 
   }
 });
 
-// Fetch favorited articles for the logged-in user
+
 async function fetchFavoritedArticles() {
   try {
-    if (!currentUser) return; // No user logged in
+    if (!currentUser) return; 
 
     const userId = currentUser.uid;
     const articlesRef = collection(db, "articles");
@@ -46,7 +46,7 @@ async function fetchFavoritedArticles() {
     }));
 
     const articlesContainer = document.querySelector(".article-details-container");
-    articlesContainer.innerHTML = ""; // Clear any existing content
+    articlesContainer.innerHTML = "";
 
     if (favoritedArticles.length === 0) {
       articlesContainer.innerHTML = "<p>You have no favorited articles yet.</p>";
@@ -59,12 +59,12 @@ async function fetchFavoritedArticles() {
         articleElement.innerHTML = `
           <div class="article-card">
             <img src="${article.image || 'default_image.jpg'}" alt="Article Image">
-            <h3>${article.title || 'No Title'}</h3>
+            <h2>${article.title || 'No Title'}</h2>
             <p>${article.date || 'No Date Available'}</p>
           </div>
         `;
 
-        // Add the click event listener for redirection
+        
         articleElement.addEventListener("click", () => {
           window.location.href = `contents.html?id=${article.id}`;
         });

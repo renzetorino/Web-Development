@@ -1,9 +1,8 @@
-// Import Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
 
-// Firebase configuration
+
 const firebaseConfig = {
   apiKey: "AIzaSyBlXaECsscf-6rra015vOeOTfDrSBcCMi0",
   authDomain: "web-development-8a585.firebaseapp.com",
@@ -19,16 +18,16 @@ const auth = getAuth(app);
 
 
   
-  // Function to highlight the active link
+ 
   function highlightActiveLink() {
-    const currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+    const currentPage = window.location.pathname.split("/").pop(); 
   
     const navLinks = document.querySelectorAll(".nav-link");
   
     navLinks.forEach((link) => {
-      const linkHref = link.getAttribute("href").split("/").pop(); // Get the href from each link and get the last part (the page name)
+      const linkHref = link.getAttribute("href").split("/").pop();
   
-      // If the link matches the current page, add 'active', otherwise remove it
+      
       if (linkHref === currentPage) {
         link.classList.add("active");
       } else {
@@ -37,10 +36,10 @@ const auth = getAuth(app);
     });
   }
   
-  // Call the function to highlight the active link on page load
+ 
   highlightActiveLink();
 
-// Detect Auth State
+
 onAuthStateChanged(auth, (user) => {
   const navbar = document.querySelector(".navbar");
   const loginBtn = document.querySelector(".login-btn");
@@ -62,17 +61,17 @@ onAuthStateChanged(auth, (user) => {
     userIcon.style.position = "relative";
     userIcon.style.display = "inline-block";
 
-    // Add to navbar
+   
     navbar.appendChild(userIcon);
 
-    // Handle Dropdown Menu
+    
     const dropdown = userIcon.querySelector(".dropdown");
     const icon = userIcon.querySelector(".user-icon");
     icon.addEventListener("click", () => {
       dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
     });
 
-    // Handle Sign-Out
+    
     const signOutButton = dropdown.querySelector("#sign-out");
     signOutButton.addEventListener("click", () => {
       signOut(auth)

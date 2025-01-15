@@ -56,7 +56,7 @@ async function fetchArticleDetails() {
   const params = new URLSearchParams(window.location.search);
   const articleId = params.get("id");
 
-  console.log("Article ID:", articleId); // Debugging
+  console.log("Article ID:", articleId); 
 
   if (!articleId) {
     alert("No article ID provided!");
@@ -69,12 +69,12 @@ async function fetchArticleDetails() {
 
     if (articleSnap.exists()) {
       const article = articleSnap.data();
-      console.log("Fetched article data:", article); // Debugging
+      console.log("Fetched article data:", article); 
 
-      // Normalize the content before displaying
+      
       const formattedContent = normalizeContent(article.content);
 
-      // Update HTML elements with article data
+      
       document.getElementById("article-title").textContent = article.title || "No Title";
       document.getElementById("article-image").src = article.image || "default_image.jpg";
       document.getElementById("article-date").textContent = article.date || "No Date Available";
@@ -90,5 +90,5 @@ async function fetchArticleDetails() {
   }
 }
 
-// Fetch article details when the page loads
+
 window.onload = fetchArticleDetails;

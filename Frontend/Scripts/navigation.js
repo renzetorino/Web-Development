@@ -37,7 +37,7 @@ function highlightActiveLink() {
 
 highlightActiveLink();
 
-// Detect Auth State
+
 onAuthStateChanged(auth, (user) => {
   const navbar = document.querySelector(".navbar");
   const loginBtn = document.querySelector(".login-btn");
