@@ -4,42 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOOD-YUM</title>
-    <link rel ="stylesheet" href = "CSS/recipeTemplate.css">
-    <script src="Scripts/header.js"></script>
-    <script type="module" src="Scripts/navigation.js"></script>
+    <link rel="stylesheet" href="CSS/recipeTemplate.css">
 </head>
 <body>
     <header>
         <div id="header-placeholder"></div>
     </header>
     <main>
-        <div>
-            <h1>TITLE FOR THE FOOD</h1>
-        </div>
-        <div>
-            <img>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="column">INGREDIENTS</div>
-                <div class="column">MARKET PRICE</div>
-            </div>
-            <div class="row">
-                <div class="column">Column 1, Row 2</div>
-                <div class="column">Column 2, Row 2</div>
-            </div>
-            <div class="row">
-                <div class="column">Column 1, Row 3</div>
-                <div class="column">Column 2, Row 3</div>
+        <div class="recipes-page">
+            <div class="recipes-header">
+                <h1>Recipes</h1>
+                <p class="recipes-description">
+                    Welcome to our recipe hub, where you can find budget-friendly recipes that make healthy eating easy and affordable.
+                </p>
+                <div class="recipe-filters">
+                    <button class="filter-button active" id="1">All</button>
+                    <button class="filter-button" id="2">Quick Meals</button>
+                    <button class="filter-button" id="3">Vegetarian</button>
+                    <button class="filter-button" id="4">High-Protein</button>
+                    <button class="filter-button" id="5">Desserts</button>
+                </div>
             </div>
         </div>
     </main>
+    <article>
+        <div id="recipe-placeholder"></div>
+    </article>
+    <footer>
+        <div id="footer-placeholder"></div>
+    </footer>
 </body>
-<<<<<<< Updated upstream:Frontend/recipeTemplate.html
-=======
 <script src="Scripts/header.js"></script>
 <script src="Scripts/footer.js"></script>
 <script src="Scripts/mealsCard.js"></script>
 <script type="module" src="Scripts/navigation.js"></script>
->>>>>>> Stashed changes:Frontend/mealsCard.html
 </html>

@@ -215,8 +215,4 @@ async function checkFavoriteStatus(articleId, favoriteButton) {
 }
 
 
-<<<<<<< Updated upstream
 window.onload = fetchArticles;
-=======
-window.onload = fetchArticles;
->>>>>>> Stashed changes

@@ -6,29 +6,12 @@ body, html {
     color: #333;
   }
   
-  header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-  }
-  
   h1 {
     text-align: center;
     font-size: 28px;
     margin-top: 20px;
     margin-bottom: 20px;
     color: #333;
-  }
-  
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto 20px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
   }
   
   .container {
@@ -76,13 +59,6 @@ body, html {
     }
   }
 
-<<<<<<< Updated upstream
-/* Main*/
-.main {
-    text-align: center;
-    padding: 2rem 1rem;
-    background-color: white;
-=======
 .recipes-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -184,5 +160,4 @@ body, html {
 
 .recipe-info {
   padding: 15px;
->>>>>>> Stashed changes
 }
