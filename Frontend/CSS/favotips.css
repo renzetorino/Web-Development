@@ -22,17 +22,15 @@ h1 {
     padding: 20px;
     font-family: Arial, sans-serif;
 }
-  
-  
 
-.article-details-container {
+.article-details-container, .recipe-details-container{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
   
  
-.article-card {
+.article-card, .recipe-card {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -41,7 +39,7 @@ h1 {
     transition: transform 0.3s ease-in-out;
 }
   
-.article-card:hover {
+.article-card:hover, .recipe-card:hover {
     transform: translateY(-5px);
 }
   
@@ -51,13 +49,21 @@ h1 {
     border-radius: 8px;
     margin-bottom: 12px;
 }
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
   
-.article-card h2 {
+.article-card h2, .recipe-card h2 {
     font-size: 18px;
     margin-bottom: 8px;
 }
   
-.article-card p {
+.article-card p, .recipe-card p {
     font-size: 14px;
     color: #555;
     margin-bottom: 10px;

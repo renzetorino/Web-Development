@@ -214,5 +214,4 @@ async function checkFavoriteStatus(articleId, favoriteButton) {
   }
 }
 
-
 window.onload = fetchArticles;

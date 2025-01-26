@@ -18,7 +18,6 @@ const auth = getAuth(app);
 
 let currentUser = null;
 
-// Listen for auth state changes
 onAuthStateChanged(auth, (user) => {
   if (user) {
     currentUser = user; 
@@ -29,7 +28,6 @@ onAuthStateChanged(auth, (user) => {
     window.location.href = "login.html"; 
   }
 });
-
 
 async function fetchFavoritedArticles() {
   try {

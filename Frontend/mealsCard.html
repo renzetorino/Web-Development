@@ -18,17 +18,17 @@
                     Welcome to our recipe hub, where you can find budget-friendly recipes that make healthy eating easy and affordable.
                 </p>
                 <div class="recipe-filters">
-                    <button class="filter-button active" id="1">All</button>
-                    <button class="filter-button" id="2">Quick Meals</button>
-                    <button class="filter-button" id="3">Vegetarian</button>
-                    <button class="filter-button" id="4">High-Protein</button>
-                    <button class="filter-button" id="5">Desserts</button>
+                    <button class="filter-button active" id="all">All</button>
+                    <button class="filter-button" id="quick_meal">Quick Meals</button>
+                    <button class="filter-button" id="vegetarian">Vegetarian</button>
+                    <button class="filter-button" id="high_protein">High-Protein</button>
+                    <button class="filter-button" id="dessert">Desserts</button>
                 </div>
             </div>
         </div>
     </main>
     <article>
-        <div id="recipe-placeholder"></div>
+        <div id="recipe-placeholder" class="recipe-cards-meals"></div>
     </article>
     <footer>
         <div id="footer-placeholder"></div>
@@ -36,6 +36,6 @@
 </body>
 <script src="Scripts/header.js"></script>
 <script src="Scripts/footer.js"></script>
-<script src="Scripts/mealsCard.js"></script>
+<script type="module" src="Scripts/mealsCard.js"></script>
 <script type="module" src="Scripts/navigation.js"></script>
 </html>

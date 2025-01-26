@@ -99,4 +99,11 @@ p {
     fill: #ffc107;
     stroke-width: 0;
   }
+
+  .favorite-btn.active {
+    fill: #ffb400;
+    transform: scale(1.2);
+    transition: transform 0.2s, fill 0.2s;
+  }
+  
   
